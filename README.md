@@ -1,4 +1,4 @@
-# Thesis Project Universita Pardubice
+# Thesis Project Univerzita Pardubice
 ## Predictive controler implementation in C++
 
 This is my thesis project implementation of predictive controller in C++, simple predictive controller for first order systems with dead time and online method of least squares for identify plants.
