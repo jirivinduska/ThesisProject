@@ -39,7 +39,7 @@ PredictiveController::PredictiveController() {
 void PredictiveController::initialize(float a[], float b[], float c[], int N2,
 		int Nu, float q,float alfa, int nA, int nB, int nC) {
 	float mat[nA + 2];
-	float conv[2] = { 1.0, -1.0 };
+	float delta[2] = { 1.0, -1.0 };
 //priprava vektoru pro nasobeni polynomu
 	for (int i = 0; i < nA + 2; ++i) {
 		mat[i] = 0;
@@ -88,7 +88,7 @@ void PredictiveController::initialize(float a[], float b[], float c[], int N2,
 //násobení polynomù
 	for (int i = 0; i < nA; ++i) {
 		for (int j = 0; j < 2; ++j) {
-			mat[i + j] = mat[i + j] + a[i] * conv[j];
+			mat[i + j] = mat[i + j] + a[i] * delta[j];
 		}
 	}
 //App
@@ -412,8 +412,6 @@ void PredictiveController::setSetpoint(float w, long current_time,
 		_setPoint[_N2] = _alfa*_last_setPoint+(1-_alfa)*w;
 		_last_setPoint=_setPoint[_N2];
 	}
-
-
 }
 
 void PredictiveController::printData(long current_time) {
