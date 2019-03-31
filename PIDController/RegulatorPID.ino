@@ -9,11 +9,11 @@
 PIDController pidController;
 InputOutput inputOutput;
 /*This lines are set by user.*/
-float r0 = 2.0103;
-float Ti = 2.4826;
-float Td = 0.5896;
+float r0 = 2.0;
+float Ti = 2.3599;
+float Td = 0.5723;
 float setpoint = 0.0;
-float alfa = 0.7;
+float alfa = 0.0;
 int future = 0;
 int Ts = 1;
 ////////////////////////////////
@@ -45,6 +45,7 @@ void setup() {
 
 void loop() {
 	long current_millis = millis();
+	/*Every sample time is processed this condition*/
 	if (current_millis - previous_millis >= interval) {
 		previous_millis = current_millis;
 

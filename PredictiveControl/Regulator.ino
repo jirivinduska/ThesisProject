@@ -10,18 +10,18 @@ PredictiveController predictiveController;
 InputOutput inputOutput;
 /*This lines are set by user.*/
 /*Model of plant in CARIMA model, maximum order is 3 if N2=4*/
-float a[3] = { 1.0000,   -0.7654,    0.0463};
-float b[3] = {  0,    0.2030,    0.0756};
+float a[3] = { 1.0000,   -0.6268, -0.0407};
+float b[3] = {  0,    0.1906, 0.1408};
 /*Filter of first order*/
 float c[2] = { 1.0000,-0.8};
-/*Setpoint horizont. Maximal is 6 for Arduino Uno.*/
+/*Setpoint horizont(Sh). Maximal is 6 for Arduino Uno.*/
 int N2 = 4;
 /*Control horizont. Maximal is 1 if SH is 6 otherwise if SH=4 CH is maximal of 4. Nu<=N2*/
 int Nu = 1;
 /*Penalty for control value*/
 float q = 0.8;
 /*This parameter is used for smooth setPoint curve. 0=unit jump,0.99=smooth curve of first order*/
-float alfa=0.7;
+float alfa=0.0;
 /*Sizes of previously filled vectors*/
 int nA = 3;
 int nB = 3;
@@ -60,6 +60,7 @@ void setup() {
 void loop() {
 
 	long current_millis = millis();
+	/*Every sample time is processed this condition*/
 	if (current_millis - previous_millis >= interval) {
 		previous_millis = current_millis;
 

@@ -82,6 +82,8 @@ void ManualControll::identifyPlant(float sample,float controll_value){
 	float yp=0.0;
 	float sum=0.0;
 
+
+
 	for (int i = 0; i < n; ++i) {
 		mk[i]=0.0;
 		xk[i]=0.0;
@@ -133,8 +135,10 @@ void ManualControll::identifyPlant(float sample,float controll_value){
 		for (int i = n-1; i > _n; --i) {
 			_f[i] = _f[i-1];
 		}
+
 		_f[0]=-sample;
 		_f[_n]=controll_value;
+
 
 //Serial.println(freeMemory());
 

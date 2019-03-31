@@ -19,7 +19,7 @@ int d = 1;
 float q = 0.8;
 /*This parameter is used for smooth setPoint curve. 0=unit jump,0.99=smooth curve of first order*/
 float alfa= 0.7;
-/*Parameter for shifting set point tothe future*/
+/*Parameter for shifting set point to the future*/
 int future = 0;
 /*dead time*/
 int Ts = 1;
@@ -57,6 +57,7 @@ void setup()
 void loop()
 {
 	long current_millis = millis();
+	/*Every sample time is processed this condition*/
 	if (current_millis - previous_millis >= interval) {
 		previous_millis = current_millis;
 

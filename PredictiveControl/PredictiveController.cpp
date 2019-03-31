@@ -478,6 +478,16 @@ float PredictiveController::process(float last_sample) {
 		}
 	}
 
+	if (_nA < 3 && _nC<=1) {
+		for (int i = 0; i < _nA; ++i) {
+			KFpXp += _Kfp[i] * _Xp[i];
+		}
+
+		for (int i = 0; i < _nA; ++i) {
+			FpXp += _Fp[i] * _Xp[i];
+		}
+	}
+
 	for (int i = 0; i < _N2; ++i) {
 		deltaControllValue += _K[i] * _setPoint[i];
 	}

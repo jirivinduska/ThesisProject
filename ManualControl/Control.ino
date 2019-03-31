@@ -45,6 +45,7 @@ void setup() {
 // The loop function is called in an endless loop
 void loop() {
 	long current_millis = millis();
+	/*Every sample time is processed this condition*/
 	if (current_millis - previous_millis >= interval) {
 		previous_millis = current_millis;
 
